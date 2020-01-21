@@ -1,0 +1,123 @@
+.about {
+    height: 100%;
+    min-height: 650px;
+    position: relative;
+    &__container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        max-width: 988px;
+        width: 100%;
+        @include phones {
+            flex-direction: column;
+        }
+
+    }
+    &__left-column {
+        max-width: 284px;
+        min-width: 260px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include tablets {
+            max-width: 216px;
+        }
+        @include phones {
+            margin-bottom: 40px;
+        }
+    }
+    &__pic-block {
+        max-width: 200px;
+        margin-bottom: 80px;
+        //border-radius: 50%;
+        @include phones {
+            margin-bottom: 25px;
+        }
+
+    }
+    &__img {
+        //width: 100%;
+        //height: 100%;
+        //object-fit: cover;
+        border-radius: 50%;
+    }
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    &__list-row {
+        color: rgba($text-color, .3);
+        &_color {
+            color: $text-color;
+        }
+    }
+    &__list-row:not(:last-child) {
+        margin-bottom: 23px;
+        @include tablets {
+            margin-bottom: 15px;
+        }
+
+    }
+    &__site {
+        font-size: 18px;
+        line-height: 30px;
+    }
+    &__rigth-column {
+        max-width: 550px;
+        margin-left: 40px;
+        @include tablets {
+            max-width: 370px;
+            margin-left: 30px;
+        }
+        @include phones {
+            margin-left: 0;
+        }
+    }
+    &__greeting,
+    &__title {
+        margin-bottom: 35px;
+        @include phones {
+            margin-bottom: 10px;
+        }
+
+    }
+
+    &__title    {
+        @include tablets {
+            font-size: 30px;
+        }
+    }
+    &__text {
+        margin-bottom: 50px;
+        line-height: 24px;
+        @include phones {
+            margin-bottom: 30px;
+        }
+    }
+    &__footnote {
+        display: flex;
+        position: relative;
+        &::before {
+            content: "*";
+            position: absolute;
+            color: rgba(219, 2, 0, 0.1);
+            font-size: 48px;
+            top: 10px;
+            left: -60px;
+            @include tablets {
+                left: -35px;
+            }
+        }
+    }
+    &__triangles {
+        bottom: 0;
+        color: #ffffff;
+    }
+}

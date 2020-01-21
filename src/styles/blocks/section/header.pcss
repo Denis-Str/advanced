@@ -1,0 +1,42 @@
+.header {
+    position: absolute;
+    width: 100%;
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 64px;
+        padding-bottom: 47px;
+    }
+
+    &__menu {
+        max-width: 978px;
+        width: 100%;
+        margin-right: 10px;
+        margin-left: 10px;
+        @include desktop {
+            max-width: 688px;
+        }
+        &_desktop {
+            @include tablets {
+                display: none;
+            }
+        }
+        &_tablets {
+            display: none;
+            @include tablets {
+                display: block;
+            }
+        }
+
+    }
+
+    &__social {
+        max-width: 163px;
+        width: 100%;
+        @include phones {
+            display: none;
+        }
+
+    }
+}

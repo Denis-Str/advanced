@@ -1,0 +1,156 @@
+html {
+  @include desktop {
+    font-size: 16px;
+  }
+  //@include tablets {
+  //  font-size: 14px;
+  //  line-height: 24px;
+  //}
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.42;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgba($text-color, .5);
+  min-width: 320px;
+  @include phones {
+    font-size: 14px;
+  }
+
+}
+
+.wrapper {
+  //overflow: hidden;
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+.maincontent {
+  height: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1480px;
+  width: 95%;
+  @include desktop {
+    max-width: 1080px;
+  }
+  @include tablets {
+    max-width: 688px;
+  }
+  @include phones {
+    max-width: 260px;
+    width: 85%;
+  }
+
+}
+.fullscreen-section {
+  height: 100vh;
+  min-height: 650px;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+button[type="button"] {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.title {
+  font-family: Open Sans;
+  font-weight: 800;
+  font-size: 36px;
+  color: $text-color;
+  &_size {
+    font-size: 24px;
+  }
+  @include tablets {
+    font-size: 30px;
+  }
+  @include phones {
+    font-size: 24px;
+  }
+}
+
+.btn {
+  background-image: linear-gradient(to right, #9300e8, #4a00ed);
+  padding: 30px 120px;
+  border-radius: 50px 5px 50px 5px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.copyright {
+  font-size: 48px;
+  color: rgba(255, 255, 255, 0.1);
+  @include desktop {
+    margin-bottom: 25px;
+  }
+}

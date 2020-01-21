@@ -1,0 +1,96 @@
+.stack {
+    max-width: 750px;
+    width: 100%;
+    @include desktop {
+        max-width: 680px;
+    }
+    @include tablets {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 50px;
+        @include tablets {
+            margin-bottom: 30px;
+        }
+    }
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include tablets {
+            max-width: 590px;
+            //justify-content: center;
+        }
+        @include phones {
+            flex-wrap: wrap;
+        }
+    }
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        //max-width: 135px;
+        //width: 100%;
+        //max-height: 135px;
+        //height: 100%;
+    }
+    &__title {
+        font-size: 24px;
+        margin-bottom: 40px;
+        @include tablets {
+            margin-bottom: 16px;
+        }
+    }
+    &__svg-block {
+        //max-height: 135px;
+        //height: 100%;
+    }
+
+    &__svg {
+        max-width: 135px;
+        width: 100%;
+        @include tablets {
+            max-width: 130px;
+        }
+        @include phones {
+            max-width: 120px;
+        }
+    }
+    &__text {
+        max-width: 100px;
+        text-align: center;
+        position: absolute;
+        font-size: 18px;
+        @include tablets {
+            font-size: 16px;
+        }
+
+    }
+    //&__svg {
+    //    width: 135px;
+    //    height: 135px;
+    //    @include tablets {
+    //        width: 130px;
+    //        height: 130px;
+    //    }
+    //    @include phones {
+    //        width: 120px;
+    //        height: 120px;
+    //    }
+    //}
+    &__circle-lower {
+        fill: transparent;
+        stroke-width: 5px;
+        stroke: #e9e9e9;
+    }
+    &__circle-upper {
+        fill: transparent;
+        stroke-width: 10px;
+        stroke-dasharray: 251;
+        stroke-dashoffset: 20;
+    }
+}

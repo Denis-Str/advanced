@@ -1,0 +1,18 @@
+.triangles {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    &__item {
+        display: block;
+        height: 120px;
+        width: 50%;
+        fill: currentColor;
+        @include tablets {
+            height: 50px;
+        }
+        @include phones {
+            height: 30px;
+        }
+
+    }
+}

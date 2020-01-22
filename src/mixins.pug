@@ -6,11 +6,11 @@ mixin icon(name, className)
 mixin image(path, className)
   img(src=require(`images/${path}`) class=className alt=`${className}`)
 
-mixin nav(obj, activeClass)
+mixin nav(obj)
   ul.nav__list
     each key, value in obj
       li.nav__item
-        a(class=`nav__link ${activeClass}` href=`${key}`) #{value}
+        a(class="nav__link" href=`${key}`) #{value}
 
 mixin social(obj)
   .social

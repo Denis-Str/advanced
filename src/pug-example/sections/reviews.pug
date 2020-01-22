@@ -4,8 +4,13 @@ section.reviews.fullscreen-section
             polyline(points="0,0 1000,0 1000,100")
         svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
             polyline(points="1000,0 0,0 0,100")
-
-    .parallax__bottom
+    .reviews__parallax.parallax
+        .parallax__layer(data-speed="0.1")
+            +image('content/budda-parallax/1.jpg', 'parallax__img')
+        - var i = 0.1
+        each item in [2, 3, 4, 5]
+            .parallax__layer(data-speed=`${(i += 0.2).toFixed(2)}`)
+                +image(`content/budda-parallax/${item}.png`, 'parallax__img')
     .container.reviews__container
         .reviews__top
             h2.title.reviews__title Что обо мне говорят

@@ -7,7 +7,7 @@ const layersBudda = parallaxBudda.children;
 const moveLayers = (wScroll, layers) => {
     Array.from(layers).forEach(layer => {
         const dataSet = layer.dataset.speed;
-        const scroll = dataSet / 60 * wScroll;
+        const scroll = dataSet / 40 * wScroll;
 
         layer.style.transform = `translate3d(0, ${-scroll}%, 0)`
     })

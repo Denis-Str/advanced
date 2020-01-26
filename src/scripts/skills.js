@@ -66,7 +66,6 @@ new Vue({
         skillsRow
     },
     created() {
-        const data = require('../data/skills.json');
-        this.skills = data;
+        this.skills = require('../data/skills');
     }
 });

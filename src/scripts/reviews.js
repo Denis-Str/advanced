@@ -16,10 +16,18 @@ new Vue({
          swiperOption: {
             navigation: {
                nextEl: '.controls_right',
-               prevEl: '.controls_left'
+               prevEl: '.controls_left',
+               disabledClass: 'swiper-button-disabled'
             },
             slidesPerView: 2,
-            slidersPerGroup: 2
+            slidersPerGroup: 2,
+            spaceBetween: 60,
+            breakpoints: {
+               480: {
+                  slidesPerView: 1,
+                  slidersPerGroup: 1
+               }
+            }
          },
       }
    },

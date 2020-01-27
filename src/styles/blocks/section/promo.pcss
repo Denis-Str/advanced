@@ -63,8 +63,9 @@
     }
 
     .parallax {
+        height: 170%;
         @include tablets {
-            z-index: -1;
+            z-index: -20;
             @include bg-img(bg/mountain-baloon.jpg);
             width: 100%;
             height: 170%;
@@ -107,7 +108,7 @@
             &:nth-child(7) {
                 .parallax__img {
                     left: 0;
-                    bottom: 0;
+                    bottom: -390px;
                 }
             }
         }

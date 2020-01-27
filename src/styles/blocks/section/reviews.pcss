@@ -1,5 +1,5 @@
 .reviews {
-    //height: 100%;
+    height: 80%;
     //min-height: 650px;
     position: relative;
     &__container {
@@ -8,13 +8,13 @@
         flex-direction: column;
         justify-content: center;
         position: relative;
-        padding-top: 250px;
-        @include desktop {
-            padding-top: 190px;
-        }
-        @include phones {
-            padding-top: 105px;
-        }
+        //padding-top: 250px;
+        //@include desktop {
+        //    padding-top: 190px;
+        //}
+        //@include phones {
+        //    padding-top: 105px;
+        //}
     }
     &__top {
         display: flex;
@@ -45,8 +45,6 @@
         justify-content: space-between;
     }
     &__item {
-        max-width: 423px;
-        width: 100%;
         display: flex;
         &::before {
             content: "";
@@ -55,13 +53,6 @@
             width: 100%;
             background-repeat: no-repeat;
             margin-right: 20px;
-            @include tablets {
-                max-width: 30px;
-                margin-right: 10px;
-            }
-            @include phones {
-                display: none;
-            }
         }
         @include tablets {
             max-width: 334px;
@@ -116,6 +107,9 @@
     }
     .controls {
         display: flex;
+        .swiper-button-disabled {
+            opacity: .5;
+        }
         @include phones {
             margin-bottom: 25px;
         }
@@ -139,45 +133,39 @@
     }
     &__parallax {
         position: absolute;
-        z-index: -2;
-        //@include bg-img(bg/budda.jpg);
-        width: 100%;
-        height: 150%;
-        background-position: center center;
     }
     .parallax {
+        height: 187%;
         @include tablets {
-            z-index: -1;
+            z-index: -10;
             @include bg-img(bg/budda.jpg);
             width: 100%;
-            height: 200%;
+            height: 187%;
         }
         &__layer {
-            &:nth-child(1) {
-                top: 5%;
-            }
             &:nth-child(2) {
                 .parallax__img {
-                    bottom: -26%;
+                    top: 47%;
                     right: 0;
+                    height: 80%;
                 }
             }
             &:nth-child(3) {
                 .parallax__img {
                     left: 50%;
-                    top: 98%;
-                    margin-left: 3%;
+                    top: 75%;
+                    margin-left: 10%;
                 }
             }
+            //&:nth-child(4) {
+            //    .parallax__img {
+            //        left: 0;
+            //        top: 80%;
+            //    }
+            //}
             &:nth-child(4) {
                 .parallax__img {
-                    left: 0;
-                    top: 126%;
-                }
-            }
-            &:nth-child(5) {
-                .parallax__img {
-                    top: 151%;
+                    bottom: -20px;
                 }
             }
         }

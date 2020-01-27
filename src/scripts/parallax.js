@@ -4,10 +4,16 @@ const layersPromo = parallaxPromo.children;
 const parallaxBudda = document.querySelector('.reviews__parallax');
 const layersBudda = parallaxBudda.children;
 
+const buddaMove = (wScroll,layers) => {
+    let buddaPos = parallaxBudda.getBoundingClientRect().top;
+    let activeParallax = wScroll - buddaPos;
+    if (activeParallax > 300 ) moveLayers(wScroll, layers);
+};
+
 const moveLayers = (wScroll, layers) => {
     Array.from(layers).forEach(layer => {
         const dataSet = layer.dataset.speed;
-        const scroll = dataSet / 40 * wScroll;
+        const scroll = dataSet / 50 * wScroll;
 
         layer.style.transform = `translate3d(0, ${-scroll}%, 0)`
     })
@@ -43,5 +49,6 @@ const moveLayers = (wScroll, layers) => {
 window.onscroll = function () {
     let wScroll = window.pageYOffset;
     moveLayers(wScroll, layersPromo);
-    moveLayers(wScroll, layersBudda);
+    // moveLayers(wScroll, layersBudda);
+    buddaMove(wScroll, layersBudda);
 };

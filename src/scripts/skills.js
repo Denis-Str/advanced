@@ -1,6 +1,6 @@
 // let svgScroll = (function () {
 //     let svg = document.querySelector('.stack__svg '),
-//         // svgPath = document.querySelector('.stack__svg stack__circle-upper'),
+//         svgPath = document.querySelector('.stack__svg stack__circle-upper'),
 //         windowMargin = window.innerHeight / 3,
 //         svgRect = svg.getBoundingClientRect(),
 //         svgPos = svgRect.top;

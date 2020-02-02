@@ -23,9 +23,14 @@ new Vue({
             slidersPerGroup: 2,
             spaceBetween: 60,
             breakpoints: {
+               768: {
+                  slidesPerView: 2,
+                  slidersPerGroup: 2,
+                  spaceBetween: 30,
+               },
                480: {
                   slidesPerView: 1,
-                  slidersPerGroup: 1
+                  slidersPerGroup: 1,
                }
             }
          },

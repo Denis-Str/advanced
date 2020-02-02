@@ -52,7 +52,8 @@
     &__slider-left {
         position: relative;
         max-width: 977px;
-        flex: 2;
+        flex: 3;
+        margin-right: 20px;
         @include desktop {
             max-width: 623px;
             margin-right: 10px;
@@ -91,10 +92,6 @@
             right: -125px;
             top: 0;
         }
-        @include tablets {
-            //right: -125px;
-            //top: -115px;
-        }
         @include phones {
             display: none;
         }
@@ -110,6 +107,9 @@
         }
         &-title {
             margin-bottom: 35px;
+            @include desktop {
+                font-size: 28px;
+            }
         }
         &-desc {
             line-height: 30px;
@@ -129,10 +129,9 @@
     &__preview {
         margin: 0;
         position: relative;
-        height: 100%;
     }
     &__img-full {
-        height: 100%;
+        //height: 100%;
         object-fit: cover;
     }
 

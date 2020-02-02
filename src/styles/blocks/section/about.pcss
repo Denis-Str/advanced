@@ -1,22 +1,19 @@
 .about {
     position: relative;
-    height: 70%;
     &__container {
-        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        //padding-top: 60px;
-    //    padding-bottom: 270px;
-    //    @include desktop {
-    //        padding-bottom: 220px;
-    //    }
-    //    @include tablets {
-    //        padding-bottom: 150px;
-    //    }
-    //    @include phones {
-    //        padding-bottom: 105px;
-    //    }
+        padding-bottom: 270px;
+        @include desktop {
+            padding-bottom: 220px;
+        }
+        @include tablets {
+            padding-bottom: 150px;
+        }
+        @include phones {
+            padding-bottom: 105px;
+        }
     }
     &__inner {
         display: flex;
@@ -25,6 +22,7 @@
         width: 100%;
         @include phones {
             flex-direction: column;
+            align-items: center;
         }
     }
     &__left-column {
@@ -39,6 +37,7 @@
         }
         @include phones {
             margin-bottom: 40px;
+            max-width: unset;
         }
     }
     &__pic-block {
@@ -91,10 +90,10 @@
         }
         @include phones {
             margin-left: 0;
+            max-width: unset;
         }
     }
-    &__greeting,
-    &__title {
+    &__greeting {
         margin-bottom: 35px;
         @include phones {
             margin-bottom: 10px;
@@ -102,8 +101,12 @@
     }
 
     &__title    {
+        margin-bottom: 35px;
         @include tablets {
             font-size: 30px;
+        }
+        @include phones {
+            font-size: 40px;
         }
     }
     &__text {

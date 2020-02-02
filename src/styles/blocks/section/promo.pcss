@@ -1,7 +1,16 @@
 .promo {
     height: 100%;
-    min-height: 650px;
-    &__inner {
+    position: relative;
+    &__container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    &__content {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -13,15 +22,6 @@
             flex-direction: column;
             align-items: center;
         }
-    }
-    &__container {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding-bottom: 20px;
-        position: relative;
     }
     &__greeting {
         text-align: center;
@@ -52,6 +52,65 @@
     }
     &__scroll {
         position: absolute;
-        bottom: 70px;
+        bottom: 0;
+        margin-bottom: 120px;
+        @include tablets {
+            display: none;
+        }
+    }
+    &__parallax {
+        position: absolute;
+    }
+
+    .parallax {
+        height: 170%;
+        @include tablets {
+            z-index: -20;
+            @include bg-img(bg/mountain-baloon.jpg);
+            width: 100%;
+            height: 170%;
+            background-position: center center;
+        }
+
+        &__layer {
+            &:nth-child(2) {
+                .parallax__img {
+                    top: 35%;
+                    right: 0;
+                    width: 100%;
+                }
+            }
+            &:nth-child(3) {
+                .parallax__img {
+                    left: 50%;
+                    top: 50%;
+                    margin-left: 8%;
+                }
+            }
+            &:nth-child(4) {
+                .parallax__img {
+                    left: 0;
+                    top: 60%;
+                }
+            }
+            &:nth-child(5) {
+                .parallax__img {
+                    top: 60%;
+                }
+            }
+            &:nth-child(6) {
+                .parallax__img {
+                    right: 0;
+                    top: 60%;
+                    width: 100%;
+                }
+            }
+            &:nth-child(7) {
+                .parallax__img {
+                    left: 0;
+                    bottom: -390px;
+                }
+            }
+        }
     }
 }

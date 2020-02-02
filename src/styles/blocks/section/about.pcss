@@ -1,12 +1,22 @@
 .about {
-    height: 100%;
-    min-height: 650px;
     position: relative;
+    height: 70%;
     &__container {
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
+        //padding-top: 60px;
+    //    padding-bottom: 270px;
+    //    @include desktop {
+    //        padding-bottom: 220px;
+    //    }
+    //    @include tablets {
+    //        padding-bottom: 150px;
+    //    }
+    //    @include phones {
+    //        padding-bottom: 105px;
+    //    }
     }
     &__inner {
         display: flex;
@@ -16,7 +26,6 @@
         @include phones {
             flex-direction: column;
         }
-
     }
     &__left-column {
         max-width: 284px;
@@ -33,6 +42,7 @@
         }
     }
     &__pic-block {
+        width: 100%;
         max-width: 200px;
         margin-bottom: 80px;
         //border-radius: 50%;
@@ -71,7 +81,10 @@
     }
     &__rigth-column {
         max-width: 550px;
-        margin-left: 40px;
+
+        @include desktop {
+            margin-left: 40px;
+        }
         @include tablets {
             max-width: 370px;
             margin-left: 30px;
@@ -86,7 +99,6 @@
         @include phones {
             margin-bottom: 10px;
         }
-
     }
 
     &__title    {
@@ -111,6 +123,9 @@
             font-size: 48px;
             top: 10px;
             left: -60px;
+            @include desktop {
+                left: -45px;
+            }
             @include tablets {
                 left: -35px;
             }

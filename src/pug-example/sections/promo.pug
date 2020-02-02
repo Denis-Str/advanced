@@ -1,7 +1,15 @@
 section.promo
-    .parallax__top
+    .promo__parallax.parallax
+        .parallax__layer(data-speed="0")
+            +image('content/promo-parallax/1.jpg', 'parallax__img')
+        - var i = 0
+        each item in [2, 3, 4, 5, 6]
+            .parallax__layer(data-speed=`${(i += 0.2).toFixed(2)}`)
+                +image(`content/promo-parallax/${item}.png`, 'parallax__img')
+        .parallax__layer(data-speed="0")
+            +image('content/promo-parallax/7.png', 'parallax__img')
     .container.promo__container
-        .promo__inner
+        .promo__content
             .promo__greeting.greeting Личный сайт веб&nbsp;разработчика
             h1.title.promo__title #{authorName}
         .promo__scroll.scroll

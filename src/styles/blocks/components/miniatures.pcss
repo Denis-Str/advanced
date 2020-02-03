@@ -24,11 +24,11 @@
     &__item {
         position: relative;
     //ОТКЛЮЧЕН ПОСЛЕДНИЙ ЭЛЕМЕНТ
-        @include desktop {
-            &:nth-child(4) {
-                display: none;
-            }
-        }
+    //    @include desktop {
+    //        &:nth-child(4) {
+    //            display: none;
+    //        }
+    //    }
     }
     &__active {
         border: solid 4px #dc9322;
@@ -41,8 +41,5 @@
     }
     &__link {
         display: flex;
-    }
-    &__img-mini {
-
     }
 }

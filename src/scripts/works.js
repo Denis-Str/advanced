@@ -8,7 +8,7 @@ const tags = {
 
 const previews = {
     template: "#slider-preview",
-    props: ["works"]
+    props: ["works", "currentWork"]
 };
 
 const btns = {
@@ -20,22 +20,39 @@ const info = {
     components: {
         tags
     },
-    props: ["currentWork"]
+    props: ["currentWork"],
+    computed: {
+        tagsArray() {
+            return this.currentWork.skills.split(', ')
+        }
+    }
+};
+
+const mobile = {
+    template: "#slider-mobile",
+    computed: {
+        btns,
+    }
 };
 
 const display = {
     template: "#slider-display",
     components: {
-        info, btns, previews
+        info, btns, previews, mobile
     },
     props: ["works", "currentWork"],
+    computed: {
+        reversePrev () {
+            return [...this.works].reverse()
+        }
+    }
 };
 
 new Vue({
     el: "#slider-component",
     template: "#slider-container",
     components: {
-        display
+        display, mobile
     },
     data() {
         return {
@@ -66,6 +83,17 @@ new Vue({
                     break;
             }
             console.log(direction)
+        },
+        makeLookSlider(value) {
+            const worksAmount = this.works.length - 1;
+            if (value > worksAmount) this.currentIndex = 0;
+            if (value < 0) this.currentIndex = worksAmount;
+
+        }
+    },
+    watch: {
+        currentIndex(value) {
+            this.makeLookSlider(value)
         }
     },
     created() {

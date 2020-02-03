@@ -59,30 +59,6 @@
         align-items: flex-start;
         margin-bottom: 20px;
         border-bottom: solid 2px $text-color;
-        &_error .form__error {
-            display: none;
-            border-bottom-color: #cd1515;
-            position: absolute;
-            bottom: -32px;
-            left: 45px;
-            padding: 17px 20px;
-            font-size: 14px;
-            color: #ffffff;
-            background-color: #cd1515;
-            font-weight: normal;
-            &::before {
-                position: absolute;
-                content: "";
-                width: 0;
-                height: 0;
-                border-left: 15px solid transparent;
-                border-right: 15px solid transparent;
-                border-bottom: 10px solid #cd1515;
-                top: -10px;
-                left: 50%;
-                margin-left: -15px;
-            }
-        }
     }
     &__field-svg {
         width: 30px;
@@ -133,7 +109,6 @@
         }
     }
 
-
     &__input::placeholder,
     &__comment::placeholder {
         //opacity: 1;
@@ -146,6 +121,33 @@
         @include phones {
             padding: 25px 0;
             width: 100%;
+        }
+    }
+    &__error {
+        display: none;
+        border-bottom-color: #cd1515;
+        position: absolute;
+        bottom: -32px;
+        left: 45px;
+        padding: 17px 20px;
+        font-size: 14px;
+        color: #ffffff;
+        background-color: #cd1515;
+        font-weight: normal;
+        &::before {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 10px solid #cd1515;
+            top: -10px;
+            left: 50%;
+            margin-left: -15px;
+        }
+        &_show {
+            display: block;
         }
     }
 }

@@ -1,6 +1,5 @@
 const form = document.querySelector('.form');
 const sendBtn = document.querySelector('.form__btn-submit');
-const errorsElem = document.querySelectorAll('.form__error')
 
 // перебор элементов формы
 const formElements = (form) => {
@@ -20,20 +19,17 @@ const formValidate = (form) => {
             valid = false;
         }
     });
+
     return valid;
 };
 
 //Проверка поля
 const fieldValidate = (elem) => {
-    if (elem.type === 'text' || elem.type === 'textarea') {
-        elem.nextElementSibling.textContent = elem.validationMessage;
-    }
-    console.log(elem.validationMessage)
+    let flag = elem.checkValidity();
+    flag ?
+        elem.parentElement.classList.remove('error') :
+        elem.parentElement.classList.add('error');
 
-    errorsElem.forEach(item => {
-        item.classList.remove('form__error_show');
-        item.classList.add('form__error_show')
-    })
     return elem.checkValidity();
 };
 

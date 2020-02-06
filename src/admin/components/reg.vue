@@ -31,10 +31,6 @@
           button(type="submit" class="btn form__btn-submit") Отправить
       .modify
         button(type="button" class="modify__del" aria-label="Delete")
-
-
-
-
 </template>
 
 <script>

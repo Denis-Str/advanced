@@ -8,7 +8,27 @@ const tags = {
 
 const previews = {
     template: "#slider-preview",
-    props: ["works", "currentWork"]
+    props: ["works", "currentWork",  "currentIndex"],
+    data() {
+        return {
+            translate: 0,
+            itemHeight: 0,
+            listHeight: 0,
+        }
+    },
+    watch: {
+        currentIndex(newValue) {
+            this.itemHeight = this.$refs.item[0].offsetHeight;
+            this.listHeight = this.$refs.list.offsetHeight;
+            const newlistHeight = this.itemHeight * (this.works.length - newValue);
+            const thumbsInList = Math.round(this.listHeight / this.itemHeight);
+            if (newlistHeight > this.listHeight) {
+                this.translate = -this.itemHeight * (this.works.length - newValue - thumbsInList);
+            } else if (newValue = (this.works.length - 1)) {
+                this.translate = 0;
+            }
+        }
+    }
 };
 
 const btns = {
@@ -28,19 +48,12 @@ const info = {
     }
 };
 
-const mobile = {
-    template: "#slider-mobile",
-    computed: {
-        btns,
-    }
-};
-
 const display = {
     template: "#slider-display",
     components: {
-        info, btns, previews, mobile
+        info, btns, previews
     },
-    props: ["works", "currentWork"],
+    props: ["works", "currentWork", "currentIndex"],
     computed: {
         reversePrev () {
             return [...this.works].reverse()
@@ -52,7 +65,7 @@ new Vue({
     el: "#slider-component",
     template: "#slider-container",
     components: {
-        display, mobile
+        display
     },
     data() {
         return {

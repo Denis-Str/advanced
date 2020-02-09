@@ -38,10 +38,17 @@
         &:hover .form__wrap {
             border-bottom-color: #5500f2;
         }
+        @include phones {
+            margin-right: 0;
+            max-width: unset;
+        }
         &_ph-mr {
            @include desktop {
                margin-right: 20px;
            }
+            @include phones {
+                margin-right: 0;
+            }
         }
     }
     &__label {

@@ -40,13 +40,14 @@ sendBtn.addEventListener('click', (evt) => {
     if (formValidate(form)) {
         let formData = new FormData(form);
         formData.append('to', 'exp@mail.com');
+        formData.append('phone', '+79991112233');
         const xhr = new XMLHttpRequest();
         xhr.responseType = 'json';
         xhr.open('POST', 'https://webdev-api.loftschool.com/sendmail');
+        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         xhr.send(formData);
-
         xhr.addEventListener('load', ()=> {
-            if (xhr.response.status === 200) {
+            if (xhr.response.status === 200 || xhr.response.status === 1) {
                 console.log('send')
             }
         });

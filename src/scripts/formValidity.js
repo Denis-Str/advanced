@@ -1,5 +1,8 @@
 const form = document.querySelector('.form');
 const sendBtn = document.querySelector('.form__btn-submit');
+const modal = document.querySelector('.modal');
+const modalClose = document.querySelector('.modal__close');
+const scroll = value => document.body.style = `overflow-y: ${value}`;
 
 // перебор элементов формы
 const formElements = (form) => {
@@ -49,7 +52,14 @@ sendBtn.addEventListener('click', (evt) => {
         xhr.addEventListener('load', ()=> {
             if (xhr.response.status === 200 || xhr.response.status === 1) {
                 console.log('send')
+                modal.classList.add('modal_show');
+                scroll('hidden');
             }
         });
     }
+});
+
+modalClose.addEventListener('click', (evt) => {
+    modal.classList.remove('modal_show');
+    scroll('auto');
 });

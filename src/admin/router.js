@@ -7,7 +7,7 @@ import About from "./components/About";
 import Work from "./components/Work";
 import Reviews from "./components/Reviews";
 
-const routers = [
+const routes = [
     {
         path: '/',
         component: About
@@ -22,4 +22,4 @@ const routers = [
     },
 ];
 
-export default new VueRouter({routers});
+export default new VueRouter({routes, mode: 'history'});

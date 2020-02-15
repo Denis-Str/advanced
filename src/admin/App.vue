@@ -5,7 +5,6 @@
     section.section
       .container
         router-view
-    reg
 </template>
 
 <style lang="postcss">
@@ -18,10 +17,9 @@
   import variables from "../styles/variables"
   import MainHeader from "./components/MainHeader";
   import NavMenu from "./components/NavMenu";
-  import reg from "./components/reg";
 
   export default {
-      components: {NavMenu, MainHeader, reg},
+      components: {NavMenu, MainHeader},
       data() {
           return {
               variables
@@ -29,11 +27,3 @@
       }
   }
 </script>
-
-<!--section.section-->
-<!--.container-->
-<!--Work-->
-<!--section.section-->
-<!--.container-->
-<!--Reviews-->
-<!--reg-->

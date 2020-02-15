@@ -20,7 +20,7 @@
             .form__error Ошибка
         div(class="form__field")
           label(for="password" class="form__label") Пароль
-          .form__wrap
+          .form__wrap.form__wrap_svg
             input(
             v-model="user.password"
               type="password"
@@ -38,12 +38,7 @@
 </template>
 
 <script>
-  import axios from "axios";
-
-  const baseURL = "https://webdev-api.loftschool.com";
-  const token = localStorage.getItem('token') || '';
-  axios.defaults.baseURL = baseURL;
-  axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+  import $axios from "../request";
 
   export default {
       name: "reg",
@@ -56,15 +51,19 @@
         }
     },
     methods: {
-      login() {
-        axios.post('/login', this.user).then(response => {
+      async login() {
+        try {
+          const response = await $axios.post('/login', this.user);
           const token = response.data.token;
-          axios.defaults.headers['Authorization'] = `Bearer ${token}`;
-          localStorage.setItem('token', token)
-          console.log(response.data)
-        }).catch(error => {
-          console.log(error.response.data)
-        })
+
+          localStorage.setItem('token', token);
+
+          $axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+          this.$route.replace("/");
+
+        } catch (error) {
+
+        }
       }
     }
   }
@@ -139,7 +138,11 @@
         background-image: svg-load("user.svg", fill=#414c63);
         background-size: cover;
         margin-bottom: 15px;
-
+      }
+      &_svg {
+        &::before {
+          background-image: svg-load("key.svg", fill=#414c63);
+        }
       }
     }
     &__label {

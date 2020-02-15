@@ -2,13 +2,6 @@
   .about
     .about__inner
       h2.about__title.title Блок «Обо мне»
-      .about__modify.modify
-        button(
-          type="button"
-          class="modify__add modify__add_small"
-          aria-label="Добавить группу"
-          )
-        span Добавить группу
     .about__group
       form(
         @submit.prevent="addNewGategory"
@@ -23,35 +16,43 @@
           .modify
             button(
               type="submit"
-              class="modify__tick"
+              class="modify__add"
               aria-label="Done"
             )
-            button(type="button"
-              class="modify__del modify__del_red"
-              aria-label="Delete"
-              )
-        Skills
+    .about__group
+      skills-group(
+        v-for="category in categories"
+        :key="category.id"
+        :category="category"
+      )
 </template>
 
 <script>
-  import Skills from "./Skills";
-  import {mapActions} from 'vuex';
+  import {mapActions, mapState} from 'vuex';
   export default {
     name: "About",
-    components: {Skills},
+    components: {
+      skillsGroup: () => import("./Skills")
+    },
     data() {
         return {
             title: ""
         }
     },
+    computed: {
+      ...mapState("categories", {
+        categories: state => state.categories
+      })
+    },
+    created() {
+      this.fetchGategories();
+    },
     methods: {
-      ...mapActions("categories", ["addGategory"]),
+      ...mapActions("categories", ["addGategory", "fetchGategories"]),
       async addNewGategory() {
           try {
-            await this.addGategory(this.title)
-          } catch (error) {
-              alert(error.message)
-          }
+            await this.addGategory(this.title);
+          } catch (error) {}
       }
     }
   }
@@ -106,10 +107,10 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      border-bottom: 1px solid rgba(31, 35, 45, .15);
+      /*border-bottom: 1px solid rgba(31, 35, 45, .15);*/
       height: 74px;
       padding-left: 5px;
-      margin-bottom: 30px;
+      /*margin-bottom: 30px;*/
     }
     &__value {
       padding-bottom: 10px;

@@ -2,11 +2,14 @@
   .reg
     .reg__content
       h2.title Аворизация
-      form(action="#" class="form" enctype="multipart/form-data" method="post")
+      form(
+        @submit.prevent="login"
+        ).form
         div(class="form__field")
           label(for="name" class="form__label") Логин
           .form__wrap
             input(
+            v-model="user.name"
               type="text"
               id="name"
               name="name"
@@ -19,9 +22,10 @@
           label(for="password" class="form__label") Пароль
           .form__wrap
             input(
+            v-model="user.password"
               type="password"
               id="password"
-              name="email"
+              name="password"
               class="form__input"
               required
               aria-label="пароль"
@@ -34,9 +38,36 @@
 </template>
 
 <script>
-    export default {
-        name: "reg"
+  import axios from "axios";
+
+  const baseURL = "https://webdev-api.loftschool.com";
+  const token = localStorage.getItem('token') || '';
+  axios.defaults.baseURL = baseURL;
+  axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+
+  export default {
+      name: "reg",
+      data() {
+        return {
+          user: {
+            name: "",
+            password: ""
+          }
+        }
+    },
+    methods: {
+      login() {
+        axios.post('/login', this.user).then(response => {
+          const token = response.data.token;
+          axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+          localStorage.setItem('token', token)
+          console.log(response.data)
+        }).catch(error => {
+          console.log(error.response.data)
+        })
+      }
     }
+  }
 </script>
 
 <style  lang="postcss" scoped>

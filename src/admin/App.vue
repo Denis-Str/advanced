@@ -5,6 +5,7 @@
     section.section
       .container
         router-view
+    reg
 </template>
 
 <style lang="postcss">
@@ -14,16 +15,13 @@
 </style>
 
 <script>
+  import variables from "../styles/variables"
   import MainHeader from "./components/MainHeader";
   import NavMenu from "./components/NavMenu";
-  import Work from "./components/Work";
-  import Reviews from "./components/Reviews";
   import reg from "./components/reg";
-  import variables from "../styles/variables"
-  import About from "./components/About";
 
   export default {
-      components: {About, Reviews, Work, NavMenu, MainHeader, reg},
+      components: {NavMenu, MainHeader, reg},
       data() {
           return {
               variables

@@ -33,8 +33,6 @@
             .form__error Ошибка
         .form__row
           button(type="submit" class="btn form__btn-submit") Отправить
-      .modify
-        button(type="button" class="modify__del" aria-label="Delete")
 </template>
 
 <script>
@@ -73,9 +71,11 @@
   @import "../../styles/mixins.pcss";
   @import "../../styles/blocks/components/feedback-form.pcss";
   .reg {
-    /*position: fixed;*/
-    height: 100vh;
-    width: 100vw;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -135,13 +135,13 @@
         content: "";
         width: 25px;
         height: 25px;
-        background-image: svg-load("user.svg", fill=#414c63);
+        background-image: svg-load("user.svg", "fill=#414c63");
         background-size: cover;
         margin-bottom: 15px;
       }
       &_svg {
         &::before {
-          background-image: svg-load("key.svg", fill=#414c63);
+          background-image: svg-load("key.svg", "fill=#414c63");
         }
       }
     }
@@ -151,12 +151,5 @@
     &__input {
       padding-left: 10px;
     }
-}
-.modify {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  max-width: unset;
-  width: auto;
 }
 </style>

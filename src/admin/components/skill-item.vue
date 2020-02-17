@@ -65,7 +65,7 @@
       },
       async editExistedSkill() {
         try {
-          await this.editSkill(this.skill);
+          await this.editSkill(this.editedSkill);
           this.editMode = false;
         } catch (error) {}
       }

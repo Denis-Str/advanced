@@ -42,7 +42,6 @@ export default {
         return category;
       })
     }
-  
   },
   actions: {
     async addGategory({commit}, title) {
@@ -56,17 +55,10 @@ export default {
     async fetchGategories({commit}) {
       try {
         const user = await this.$axios.get('/user');
+        console.log(user)
         const {data} = await this.$axios.get(`categories/${user.data.user.id}`);
         commit("SET_GATEGORIES", data);
-        
-        console.log(data)
       } catch (error) {}
     }
   }
 }
-
-
-// data.forEach(item => {
-//   console.log(item.id)
-//   this.$axios.delete(`categories/${item.id}`);
-// })

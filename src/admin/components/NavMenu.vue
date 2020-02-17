@@ -14,8 +14,8 @@
       return {
         navLinks: [
           {title: "Обо мне", href: "/"},
-          {title: "Работы", href: "/Work"},
-          {title: "Отзывы", href: "/Reviews"},
+          {title: "Работы", href: "/work"},
+          {title: "Отзывы", href: "/reviews"},
         ]
       }
     }

@@ -15,11 +15,12 @@
 
 <script>
   import variables from "../styles/variables"
-  import MainHeader from "./components/MainHeader";
-  import NavMenu from "./components/NavMenu";
 
   export default {
-      components: {NavMenu, MainHeader},
+      components: {
+        NavMenu: () => import("./components/NavMenu"),
+        MainHeader: () => import("./components/MainHeader")
+      },
       data() {
           return {
               variables
